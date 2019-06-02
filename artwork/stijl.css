@@ -1,0 +1,277 @@
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: white;
+  max-height: 800vh;
+  width: 200vw;
+}
+
+nav {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 5rem;
+  z-index: 8;
+  transition: all .3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+ main{
+  column-count: 2;
+  margin-left: 4%;
+  margin-top: 20vh;
+}
+
+.tekst{
+  width: 100vw;
+  height: 20vh;
+}
+.paneel {
+  width: 100vw;
+  max-height: 100vh;
+}
+nav.onzichtbaar {
+  right: -100vw;
+}
+
+nav a:first-child {
+  margin-top: 15vh;
+}
+
+nav>a {
+  display: block;
+  text-decoration: none;
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  font-family: "american typewriter";
+  color: black;
+  font-weight: 100;
+  z-index: 9;
+  text-align: center;
+}
+
+.icon {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 16;
+  padding: 5px;
+}
+
+.hamburger {
+  width: 15px;
+  height: 2px;
+  background: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: '';
+  position: fixed;
+  width: 15px;
+  height: 2px;
+  background: black;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger:before {
+  top: -5px;
+}
+
+.hamburger:after {
+  top: 5px;
+}
+
+.icon.active .hamburger {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0);
+}
+
+.icon.active .hamburger:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.icon.active .hamburger:after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+
+
+
+.naam {
+  display: block;
+  position: fixed;
+  top: 28px;
+  left: 30px;
+  font-weight: 500;
+  font-family: "american typewriter";
+  z-index: 5;
+}
+h1 {
+  font-family: "american typewriter";
+  font-size: 3rem;
+  position: absolute;
+  top: 15vh;
+  left: 15%;
+  width: 30%;
+  color: black;
+  opacity: 0;
+  z-index: 4;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+a img{
+  width: 80%;
+  margin: 0.5rem;
+}
+.goto {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid black;
+  border-bottom: 5px solid transparent;
+  animation-name: spring;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-delay: 4s;
+}
+/*paneel2*/
+.paneel2 {
+  position: absolute;
+  top: 0rem;
+  right: -100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+
+@keyframes titel {
+  100% {
+    opacity: 100;
+  }
+}
+@keyframes spring {
+  20% {
+    transform: translate(0rem, 0);
+  }
+  30% {
+    transform: translate(0.8rem, 0);
+  }
+
+  40% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0.8rem, 0);
+  }
+
+  60% {
+    transform: translate(0, 0);
+  }
+}
+@supports (grid-area: auto) {
+
+  /* we weten hier: ondersteuning voor grid-layout */
+  @media (min-width: 500px)
+
+{
+  .paneel {
+    width: 100vw;
+    max-height: 300vh;
+  }
+  .paneel1 main{
+    column-count: 3;
+    margin-left: 8%;
+    margin-top: 10vh;
+  }
+  .paneel2 main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  h1{
+      font-size: 6rem;
+      position: fixed;
+      top: 5vh;
+      left: 15%;
+      -webkit-text-fill-color: yellow;
+      -webkit-text-stroke-width: 0.8px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+  @media (min-width: 1200px){
+
+    h1{
+      left: 35%;
+      top: 5%;
+    }
+    nav>a {
+
+      font-size: 5rem;
+      margin-bottom: 4rem;
+
+
+      font-weight: 600;
+
+    }
+
+    .icon {
+      top: 30px;
+      right: 30px;
+
+    }
+
+    .hamburger {
+      width: 35px;
+      height: 3px;
+
+    }
+
+    .hamburger:before,
+    .hamburger:after {
+
+      width: 35px;
+      height: 3px;
+
+    }
+
+    .hamburger:before {
+      top: -10px;
+    }
+
+    .hamburger:after {
+      top: 10px;
+    }
+
+  }
+
+   }

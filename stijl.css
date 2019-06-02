@@ -1,0 +1,736 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: white;
+  max-height: 100vh;
+  width: 500vw;
+}
+
+nav {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 5rem;
+  z-index: 8;
+  transition: all .3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.paneel {
+  width: 100vw;
+  max-height: 100vh;
+}
+
+nav.onzichtbaar {
+  right: -100vw;
+}
+
+nav a:first-child {
+  margin-top: 15vh;
+}
+
+nav>a {
+  display: block;
+  text-decoration: none;
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  font-family: "american typewriter";
+  color: black;
+  font-weight: 100;
+  z-index: 9;
+  text-align: center;
+}
+
+.icon {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 16;
+  padding: 5px;
+}
+
+.hamburger {
+  width: 15px;
+  height: 2px;
+  background: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: '';
+  position: fixed;
+  width: 15px;
+  height: 2px;
+  background: black;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+.hamburger:before {
+  top: -5px;
+}
+
+.hamburger:after {
+  top: 5px;
+}
+
+.icon.active .hamburger {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0);
+}
+
+.icon.active .hamburger:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.icon.active .hamburger:after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.naam {
+  display: block;
+  position: fixed;
+  top: 28px;
+  left: 30px;
+  font-weight: 500;
+  font-family: "american typewriter";
+  z-index: 5;
+}
+
+.beeld1 {
+  position: absolute;
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+}
+
+h1 {
+  font-family: "american typewriter";
+  font-size: 5rem;
+  position: absolute;
+  top: 15vh;
+  left: 15%;
+  color: black;
+  opacity: 0;
+  z-index: 4;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel, kleur;
+  animation-duration: 2s, 4s;
+  animation-delay: 1s, 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+}
+
+h2 {
+  font-family: "american typewriter";
+  font-size: 4rem;
+  position: absolute;
+  top: 76vh;
+  right: 5%;
+  opacity: 0;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel, kleur;
+  animation-duration: 2s, 4s;
+  animation-delay: 1.5s, 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+  z-index: 4;
+}
+
+#text {
+  font-family: "american typewriter";
+  font-size: 3rem;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.console-container {
+  text-align: center;
+  position: absolute;
+  top: 87vh;
+  right: 0%;
+  width: 100vw;
+  height: 5vh;
+  display: block;
+  position: absolute;
+  color: white;
+  z-index: 4;
+}
+
+.goto {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid black;
+  border-bottom: 5px solid transparent;
+  animation-name: spring;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-delay: 4s;
+}
+
+/*paneel2*/
+.paneel2 {
+  position: absolute;
+  top: 0rem;
+  right: -100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.artwork {
+  font-family: "american typewriter";
+  font-size: 6rem;
+  color: black;
+  top: 18vh;
+}
+
+.jaar {
+  top: 60vh;
+  left: 10%;
+}
+
+.beeld2 {
+  position: absolute;
+  top: 24vh;
+  left: 10%;
+  width: 70%;
+  z-index: 0;
+  filter: grayscale(0%);
+  animation-name: beeld2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.beeld3 {
+  position: absolute;
+  top: 45vh;
+  right: 14%;
+  width: 30%;
+  transform: rotate(90deg);
+  z-index: 0;
+  filter: grayscale(100%);
+  animation-name: beeld3;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+/*paneel3*/
+.paneel3 {
+  position: absolute;
+  top: 0rem;
+  right: -200vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.arthur {
+  position: absolute;
+  top: 24vh;
+  left: 10%;
+  width: 50%;
+  z-index: 0;
+  filter: grayscale(0%);
+  animation-name: beeld2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.arthur2 {
+  position: absolute;
+  top: 50vh;
+  right: 10%;
+  width: 40%;
+  z-index: 0;
+  filter: grayscale(100%);
+  animation-name: beeld3;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.paneel3>h1 {
+  font-family: "american typewriter";
+  font-size: 5rem;
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  color: black;
+  opacity: 0;
+  z-index: 4;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel, kleur;
+  animation-duration: 2s, 4s;
+  animation-delay: 1s, 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+}
+
+.paneel3>p {
+  display: block;
+  max-width: 35%;
+  line-height: 2rem;
+  font-family: "american typewriter";
+  font-size: 1rem;
+  position: absolute;
+  top: 57vh;
+  left: 10%;
+  color: black;
+  z-index: 4;
+}
+
+/*paneel4*/
+.paneel4 {
+  position: absolute;
+  top: 0rem;
+  right: -300vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.paneel4 .beeld4 {
+  position: absolute;
+  top: 20vh;
+  left: 10%;
+  width: 70%;
+  z-index: 0;
+  filter: grayscale(0%);
+  animation-name: beeld2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.paneel4>h2 {
+  font-family: "american typewriter";
+  font-size: 3rem;
+  position: absolute;
+  top: 43vh;
+  left: 40%;
+  opacity: 0;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel, kleur;
+  animation-duration: 2s, 2s;
+  animation-delay: 1.5s, 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+  z-index: 4;
+}
+.paneel4 > p {
+
+    position: absolute;
+    top: 57vh;
+    left: 10%;
+    font-size: 1.5rem;
+    font-weight: 300;
+    max-width: 70%;
+    line-height: 2rem;
+    font-family: "american typewriter";
+}
+/*paneel5*/
+.paneel5 {
+  position: absolute;
+  top: 0rem;
+  right: -400vw;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+.paneel5 > h1 {
+  font-family: "american typewriter";
+  font-size: 4rem;
+  position: absolute;
+  top: 30vh;
+  left: 35%;
+  width: 60%;
+  color: black;
+  opacity: 0;
+  z-index: 4;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: black;
+  animation-name: titel, kleur;
+  animation-duration: 2s, 4s;
+  animation-delay: 1s, 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+}
+iframe {
+      margin-left: -2%;
+}
+
+.kader {
+  position: absolute;
+  top: 10vh;
+  left: -20%;
+      overflow: hidden;
+
+      width: 60vw;
+      height: 580px;
+}
+.lijn{
+  opacity: 0;
+}
+@keyframes titel {
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes kleur {
+  10% {
+    -webkit-text-fill-color: yellow;
+  }
+
+  100% {
+    -webkit-text-fill-color: yellow;
+  }
+}
+
+@keyframes beeld2 {
+  50% {
+    filter: grayscale(100%);
+  }
+}
+
+@keyframes beeld3 {
+  50% {
+    filter: grayscale(0%);
+  }
+}
+
+@keyframes spring {
+  20% {
+    transform: translate(0rem, 0);
+  }
+
+  30% {
+    transform: translate(0.8rem, 0);
+  }
+
+  40% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0.8rem, 0);
+  }
+
+  60% {
+    transform: translate(0, 0);
+  }
+}
+@supports (grid-area: auto) {
+
+  /* we weten hier: ondersteuning voor grid-layout */
+  @media (min-width: 500px)
+
+{
+.paneel1 .beeld1{
+      top: 20vh;
+      left: 20%;
+      width: 60%;
+
+  }
+  .paneel3 > h1 {
+    font-size: 8rem;
+    top: 24vh;
+    left: 60%;
+ }
+  .paneel3>p {
+    line-height: 2.5rem;
+    font-size: 2rem;
+    top: 70vh;
+  }
+  .paneel4 .beeld4 {
+    position: absolute;
+    top: 20vh;
+    left: 10%;
+    width: 80%;
+    z-index: 0;
+    filter: grayscale(0%);
+    animation-name: beeld2;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+  }
+  .paneel > h1{
+    top: 15vh;
+    font-size: 8rem;
+  }
+  .paneel4>h2 {
+
+    font-size: 4rem;
+    top: 55vh;
+    left: 50%;
+  }
+  .paneel4 > p {
+      top: 70vh;
+      left: 10%;
+      font-size: 2rem;
+  }
+  .paneel5 > h1 {
+    font-family: "american typewriter";
+    font-size: 8rem;
+    position: absolute;
+    top: 70vh;
+    left: 20%;
+    width: 60%;
+    color: black;
+    opacity: 0;
+    z-index: 4;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: black;
+    animation-name: titel, kleur;
+    animation-duration: 2s, 4s;
+    animation-delay: 1s, 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1, infinite;
+  }
+ }
+@media (min-width: 1200px)
+
+{
+  .naam {
+    font-size: 2rem;
+  }
+
+  .paneel1 .beeld1 {
+    top: 20vh;
+    left: 10%;
+    width: 30%;
+  }
+
+  h1 {
+
+    font-size: 14rem;
+
+    top: 25vh;
+    left: 50%;
+    animation-name: titel, kleur;
+    animation-duration: 2s, 4s;
+    animation-delay: 0s, 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1, infinite;
+  }
+
+  h2 {
+    font-size: 10rem;
+    top: 50vh;
+    left: 50%;
+    animation-name: titel, kleur;
+    animation-duration: 2s, 4s;
+    animation-delay: 0.5s, 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1, infinite;
+  }
+  nav>a {
+
+    font-size: 5rem;
+    margin-bottom: 4rem;
+
+
+    font-weight: 600;
+
+  }
+  #text {
+    position: absolute;
+    top: -20vh;
+    left: 51%;
+    font-family: "american typewriter";
+    font-size: 5rem;
+  }
+  .icon {
+    top: 30px;
+    right: 30px;
+
+  }
+
+  .hamburger {
+    width: 35px;
+    height: 3px;
+
+  }
+
+  .hamburger:before,
+  .hamburger:after {
+
+    width: 35px;
+    height: 3px;
+
+  }
+
+  .hamburger:before {
+    top: -10px;
+  }
+
+  .hamburger:after {
+    top: 10px;
+  }
+  .goto {
+
+    border-top: 10px solid transparent;
+    border-left: 20px solid black;
+    border-bottom: 10px solid transparent;
+
+  }
+  /*paneel2*/
+
+  .paneel2 .artwork {
+    font-size: 14rem;
+    top: 20vh;
+  }
+  .jaar {
+    font-size: 10rem;
+    top: 70vh;
+    left: 10%;
+  }
+  .beeld2 {
+
+    top: 10vh;
+    left: 5%;
+    width: 50%;
+  }
+
+  .beeld3 {
+    top: 42%;
+    right: 23%;
+    width: 26%;
+  }
+  /*paneel3*/
+  .arthur {
+  display: none;
+  }
+
+  .arthur2 {
+    top: 18vh;
+    right: 15%;
+    width: 30%;
+  }
+
+  .paneel3>h1 {
+    font-size: 14rem;
+    top: 20vh;
+    left: 10%;
+  }
+
+  .paneel3>p {
+    line-height: 5rem;
+    font-size: 3rem;
+    top: 40vh;
+    left: 10%;
+
+  }
+  /*paneel4*/
+
+
+  .paneel4 .beeld4 {
+
+    width: 50%;
+
+  }
+  .paneel4 .news{
+    font-size: 14rem;
+    position: absolute;
+    top: 10vh;
+    left: 65%;
+  }
+  .paneel4 > h2 {
+
+    font-size: 8rem;
+    position: absolute;
+    width: 30%;
+    top: 74vh;
+    left: 13%;
+
+  }
+  .paneel4 > p {
+      position: absolute;
+      top: 50vh;
+      left: 65%;
+      width: 30%;
+      font-size: 3rem;
+      font-weight: 300;
+      max-width: 70%;
+      line-height: 3rem;
+      font-family: "american typewriter";
+  }
+
+  /*paneel5*/
+  .paneel5 {
+    position: absolute;
+    top: 0rem;
+    right: -400vw;
+    max-width: 100vw;
+    height: 100vh;
+    background-color: white;
+  }
+  .paneel5 > h1 {
+    font-family: "american typewriter";
+    font-size: 14rem;
+    position: absolute;
+    top: 30vh;
+    left: 10%;
+    width: 40%;
+
+  }
+  iframe {
+    margin-right: -10%;
+  }
+
+  .paneel5 .kader {
+    position: absolute;
+      top: 15vh;
+      left: 40%;
+    margin: 0.5rem auto;
+     overflow: hidden;
+     width: 550px;
+     height: 580px;
+  }
+  .lijn{
+    opacity: 1;
+    width: 0.5vw;
+    height: 80vh;
+    position: absolute;
+    top: 10vh;
+    left: 51.5%;
+    background-color: yellow;
+    z-index: 3;
+  }
+
+}
+}
