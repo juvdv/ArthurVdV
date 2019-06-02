@@ -188,6 +188,10 @@ a img{
   margin-left: 5%;
 
 }
+.rotatie{
+  transform: rotate(90deg);
+  margin-top: 16rem;
+}
 .goto {
   position: absolute;
   top: 50%;
